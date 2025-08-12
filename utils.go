@@ -183,7 +183,9 @@ func NormalizeEmail(str string) (string, error) {
 	if parts[1] == "gmail.com" || parts[1] == "googlemail.com" {
 		parts[1] = "gmail.com"
 		parts[0] = strings.Split(ReplacePattern(parts[0], `\.`, ""), "+")[0]
-	}
+  } else {
+    parts[0] = strings.Split(parts[0], "+")[0]
+  }
 	return strings.Join(parts, "@"), nil
 }
 
